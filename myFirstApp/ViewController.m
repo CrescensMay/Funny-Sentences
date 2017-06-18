@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "factBook.h"
+#import "colorWheel.h"
 
 @interface ViewController ()
 
@@ -16,14 +18,40 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    self.factbooks = [[factBook alloc] init];
+    self.colorwheel = [[colorWheel alloc] init];
+
+//    self.view.backgroundColor = [self.colorwheel randomColors];
+    UIColor *randomColor = [self.colorwheel randomColors];
+    self.factFunButton.tintColor = randomColor;
+    self.view.backgroundColor = randomColor;
+    self.funFact.text = [self.factbooks randomFact];
+
 }
 
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
+
 }
+
+- (IBAction)showFun {
+    
+    
+    //self.funFact.text = @"Another interesting fact!";
+    UIColor *randomColor = [self.colorwheel randomColors];
+        self.factFunButton.tintColor = randomColor;
+        self.view.backgroundColor = randomColor;
+        self.funFact.text = [self.factbooks randomFact];
+
+
+}
+
+
+
+
 
 
 @end
